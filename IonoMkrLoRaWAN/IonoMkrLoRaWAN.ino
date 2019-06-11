@@ -118,14 +118,12 @@ void checkFrameCounters() {
 void loop() {
   Iono.process();
 
-  // TODO set proper time intervals
-
   unsigned long now = millis();
-  if (now - lastFullStateSendTs >= 600000 || now - lastUpdateSendTs >= 60000) {
+  if (now - lastFullStateSendTs >= 15 * 60000 || now - lastUpdateSendTs >= 7 * 60000) {
     if (sendState(true)) {
       lastFullStateSendTs = now;
     }
-  } else if (needToSend || now - lastHeartbeatSendTs >= 10000) {
+  } else if (needToSend || now - lastHeartbeatSendTs >= 3 * 60000) {
     sendState(false);
   }
 
@@ -282,6 +280,9 @@ bool initialize() {
     return false;
   }
   if (!modem.setADR(true)) {
+    return false;
+  }
+  if (!modem.configureClass(CLASS_C)) {
     return false;
   }
   if (!modem.setFCU(SerialConfig.fCntUp)) {
