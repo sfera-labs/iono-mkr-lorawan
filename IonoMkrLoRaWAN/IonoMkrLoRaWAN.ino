@@ -106,8 +106,8 @@ void checkFrameCounters() {
   if (now - lastDownTs >= 300000) {
     int64_t fCntDown = modem.getFCD();
     if (fCntDown >= 0) {
-      if (fCntDown > SerialConfig.fCntDown + 50) {
-        SerialConfig.writeFCntDown(fCntDown + 50);
+      if (fCntDown > SerialConfig.fCntDown + 20) {
+        SerialConfig.writeFCntDown(fCntDown);
         SerialConfig.fCntDown = fCntDown;
       }
       lastDownTs = now;
@@ -367,4 +367,3 @@ void setLink(char mode, char rule, uint8_t dix, uint8_t dox) {
       break;
   }
 }
-
