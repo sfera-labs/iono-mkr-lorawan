@@ -30,9 +30,9 @@ uint8_t in3;
 uint8_t in4;
 uint8_t rcvBuf[16];
 float lastSentIn[] = {-1, -1, -1, -1, -1, -1};
-uint16_t lastSentCount[] = {-1, -1, -1, -1, -1, -1};
+uint16_t lastSentCount[] = {0xffff, 0xffff, 0xffff, 0xffff, 0xffff, 0xffff};
 uint16_t valCount[] = {0, 0, 0, 0, 0, 0};
-uint8_t lastSentOut[] = {-1, -1, -1, -1};
+uint8_t lastSentOut[] = {0xff, 0xff, 0xff, 0xff};
 float lastSentAO1 = -1;
 unsigned long lastUpdateSendTs;
 unsigned long lastFullStateSendTs;
@@ -130,10 +130,10 @@ void loop() {
   while (modem.available()) {
     if (modem.read(rcvBuf, 4) == 4 && rcvBuf[3] == 0xff) {
       switch (rcvBuf[0]) {
-        case 101: Iono.write(DO1, rcvBuf[2] == 0 ? LOW : HIGH); lastSentOut[0] = -1; break;
-        case 102: Iono.write(DO2, rcvBuf[2] == 0 ? LOW : HIGH); lastSentOut[1] = -1; break;
-        case 103: Iono.write(DO3, rcvBuf[2] == 0 ? LOW : HIGH); lastSentOut[2] = -1; break;
-        case 104: Iono.write(DO4, rcvBuf[2] == 0 ? LOW : HIGH); lastSentOut[3] = -1; break;
+        case 101: Iono.write(DO1, rcvBuf[2] == 0 ? LOW : HIGH); lastSentOut[0] = 0xff; break;
+        case 102: Iono.write(DO2, rcvBuf[2] == 0 ? LOW : HIGH); lastSentOut[1] = 0xff; break;
+        case 103: Iono.write(DO3, rcvBuf[2] == 0 ? LOW : HIGH); lastSentOut[2] = 0xff; break;
+        case 104: Iono.write(DO4, rcvBuf[2] == 0 ? LOW : HIGH); lastSentOut[3] = 0xff; break;
         case 201: Iono.write(AO1, (((rcvBuf[1] & 0xff) << 8) + rcvBuf[2]) / 100.0); lastSentAO1 = -1; break;
       }
       needToSend = true;
