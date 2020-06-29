@@ -95,7 +95,7 @@ Partial updates are sent when monitored inputs or outputs change state. A 50ms d
 
 Moreover, a heartbeat containing only channel 99 is sent every 3 minutes.
 
-Downlink commands, encoded in Cayenne LLP format, can be sent at any time to change the state of the outputs (Cayenne channels 101 to 106 and 201).
+Downlink commands, encoded in Cayenne LLP format, can be sent at any time to change the state of the outputs (Cayenne channels 101 to 104 and 201).
 
 ### Cayenne channels
 
@@ -105,6 +105,6 @@ Downlink commands, encoded in Cayenne LLP format, can be sent at any time to cha
 |11 ... 14|Analog Input|AV1 ... AV4 voltage (V)|
 |21 ... 24|Analog Input|AI1 ... AI4 current (mA)|
 |51 ... 56|Analog Input|DI1 ... DI6 counter, increased on every rising edge. Range: 0-327 (rolls back to 0 after 327)|
-|101 ... 106|Digital Output|DO1 ... DO6 state|
+|101 ... 104|Digital Output|DO1 ... DO4 state|
 |201|Analog Output|AO1 voltage (V)|
 |99|N/A|2-bytes internal counter|
