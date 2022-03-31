@@ -1,7 +1,7 @@
 /*
   IonoMkrLoRaWAN.cpp
 
-    Copyright (C) 2019 Sfera Labs S.r.l. - All rights reserved.
+    Copyright (C) 2019-2022 Sfera Labs S.r.l. - All rights reserved.
 
     For information, see:
     http://www.sferalabs.cc/
@@ -306,7 +306,7 @@ bool initialize() {
   subscribeMultimode(SerialConfig.modes[2], &in3, DI3, AV3, AI3);
   subscribeMultimode(SerialConfig.modes[3], &in4, DI4, AV4, AI4);
   subscribeMultimode(SerialConfig.modes[4], NULL, DI5, 0, 0);
-  subscribeMultimode(SerialConfig.modes[5], NULL, DI5, 0, 0);
+  subscribeMultimode(SerialConfig.modes[5], NULL, DI6, 0, 0);
 
   if (SerialConfig.rules[0] != '\0') {
     setLink(SerialConfig.modes[0], SerialConfig.rules[0], DI1, DO1);
