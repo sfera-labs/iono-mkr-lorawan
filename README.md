@@ -1,5 +1,17 @@
 # Iono MKR LoRaWAN
 
+<hr>
+<hr>
+
+This project is now included in the examples of the main [Iono Uno/MKR/RP library](https://github.com/sfera-labs/iono).
+
+Find the updated code and documentation [here](https://github.com/sfera-labs/iono/wiki/Iono-MKR-LoRaWAN).
+
+This repository is no longer updated.
+
+<hr>
+<hr>
+
 This sketch turns [Iono MKR](https://www.sferalabs.cc/iono-mkr/) into a LoRaWAN Class A/C end-device, using ABP activation and sending data encoded with the Cayenne LPP format.
 
 This sketch requires the [Iono library](https://github.com/sfera-labs/iono/tree/master/Iono) to be installed and includes the [CayenneLPP library](https://github.com/sabas1080/CayenneLPP) and the (modified) [MKRWAN library](https://github.com/arduino-libraries/MKRWAN).
