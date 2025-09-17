@@ -99,7 +99,7 @@ Review and confirm (enter `Y`) the configuration.  After saving, Iono MKR will a
 
 ## Data format
 
-When configured, Iono MKR will start sending state uplinks periodically and upon state changes. The packet payload is encoded using the [Cayenne LPP format](https://mydevices.com/cayenne/docs/lora/#lora-cayenne-low-power-payload).
+When configured, Iono MKR will start sending state uplinks periodically and upon state changes. The packet payload is encoded using the [Cayenne LPP format](https://docs.mydevices.com/docs/lorawan/cayenne-lpp).
 
 The full state (i.e. all enabled Cayenne channels, see below) is sent at start-up and then every 15 minutes or every 7 minutes if no other update is sent.
 
